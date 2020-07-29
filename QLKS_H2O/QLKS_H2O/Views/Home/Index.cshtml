@@ -1,0 +1,52 @@
+﻿@model List<QLKS_H2O.Models.LoaiPhongGioiThieu>
+@{
+    ViewBag.Title = "H2O Hotle";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+@*@section style {
+    <link href="~/Content/home.css" rel="stylesheet" />
+}*@
+
+<div style="position: fixed; top: 10px; right: 10px">
+    <a href="/Admin/Login/Login" role="button" class="btn btn-sm btn-primary">Đăng nhập</a>
+</div>
+
+<div class="container">
+    <div class="d-flex">
+        <img src="~/Images/anh3.jpg" alt="#">
+
+        <div class="ml-4">
+            <p>
+                <h2><i>H2O</i></h2>
+                <i>
+                    Khách Sạn H20 Đạt Chuẩn 5 Sao tọa lạc trên cung đường sát biển với view cực đẹp.<br>
+                    Nằm gần với các khu hành chính của tỉnh và gần các trung tâm mua sắm và bãi biển ở nha trang
+                </i>
+            </p>
+            <div class="right">
+                <p><i>Khách sạn rất nhiều phòng nghỉ, được thiết kế hiện đại, đạt tiêu chuẩn quốc tế 5 sao, với đa dạng nhiều loại phòng như: phòng đơn, phòng gia đình, phòng có view đẹp, nội thất được bày trí khoa học và tinh tế, lắp đặt những trang thiết bị hiện đại đạt tiêu chuẩn quốc tế, sẵn sàng phục vụ quý khách.Khách sạn phục vụ các món ăn Âu – Á và đặc sản địa phương sẽ làm quý khách hài lòng.</i></p>
+            </div>
+            <b>Liên hệ với chúng tôi qua số điện thoại: 0123456779</b>
+        </div>
+        
+    </div>
+
+    <hr />
+
+    <div class="content">
+        <h5 id="title">Loại phòng trong khách sạn</h5>
+        <div class="d-flex justify-content-around flex-wrap">
+            @foreach (var lp in Model)
+            {
+                <div class="card mt-2" style="width: 18rem;">
+                    <img src="/Images/@lp.anh" class="card-img-top" alt="anh">
+                    <div class="card-body">
+                        <h5 class="card-title">@lp.tenLP</h5>
+                        <span>@(lp.giaMin.ToString("###,###"))VNĐ @(lp.giaMax > lp.giaMin ? " - " + lp.giaMax.ToString("###,###") + "VNĐ" : "")</span>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+</div>
